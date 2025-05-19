@@ -24,6 +24,7 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    font-size: 16px; /* Базовий розмір шрифту для зручності */
 }
 
 main {
@@ -304,61 +305,6 @@ footer .footer-links a:hover {
     color: var(--secondary-color);
 }
 
-@media (min-width: 992px) {
-    .container {
-        max-width: var(--container-max-width-md);
-    }
-    .hero-overlay h1 {
-        font-size: 3.8em;
-    }
-    .hero-overlay p {
-        font-size: 1.6em;
-    }
-    .about-section .container {
-        flex-direction: row;
-    }
-    .about-text,
-    .about-image {
-        flex-basis: 0;
-        flex-grow: 1;
-    }
-    .about-image {
-        flex-basis: 50%;
-        flex-grow: 0;
-    }
-    .about-text {
-        flex-basis: 50%;
-        flex-grow: 0;
-    }
-    .services-preview h2 {
-        font-size: 2.4em;
-    }
-    footer .container {
-        flex-direction: row;
-        justify-content: space-between;
-    }
-    footer .footer-links {
-        margin-top: 0;
-    }
-}
-
-@media (min-width: 1200px) {
-    .container {
-        max-width: var(--container-max-width-lg);
-    }
-    .hero-overlay h1 {
-        font-size: 4.5em;
-    }
-    .hero-overlay p {
-        font-size: 1.8em;
-    }
-    .about-text h2,
-    .services-preview h2,
-    .fleet-preview h2 {
-        font-size: 2.6em;
-    }
-}
-
 .membership-section {
     text-align: center;
     background-color: var(--background-light);
@@ -426,4 +372,185 @@ footer .footer-links a:hover {
     display: block;
     margin: 0 auto 20px;
     text-align: center;
+}
+
+/* Медіа-запити для більших екранів */
+@media (min-width: 992px) {
+    .container {
+        max-width: var(--container-max-width-md);
+    }
+    .hero-overlay h1 {
+        font-size: 3.8em;
+    }
+    .hero-overlay p {
+        font-size: 1.6em;
+    }
+    .about-section .container {
+        flex-direction: row;
+    }
+    .about-text,
+    .about-image {
+        flex-basis: 0;
+        flex-grow: 1;
+    }
+    .about-image {
+        flex-basis: 50%;
+        flex-grow: 0;
+    }
+    .about-text {
+        flex-basis: 50%;
+        flex-grow: 0;
+    }
+    .services-preview h2 {
+        font-size: 2.4em;
+    }
+    footer .container {
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    footer .footer-links {
+        margin-top: 0;
+    }
+}
+
+@media (min-width: 1200px) {
+    .container {
+        max-width: var(--container-max-width-lg);
+    }
+    .hero-overlay h1 {
+        font-size: 4.5em;
+    }
+    .hero-overlay p {
+        font-size: 1.8em;
+    }
+    .about-text h2,
+    .services-preview h2,
+    .fleet-preview h2 {
+        font-size: 2.6em;
+    }
+}
+
+/* Додаємо медіа-запити для мобільних пристроїв */
+@media (max-width: 575.98px) {
+    /* Зменшуємо шрифти в геройській секції */
+    .hero-overlay h1 {
+        font-size: 1.8em;
+    }
+    .hero-overlay p {
+        font-size: 1em;
+    }
+
+    /* Налаштовуємо кнопки для зручного натискання */
+    .btn, .btn-small {
+        padding: 12px 24px;
+        margin: 10px 0;
+        font-size: 1em;
+    }
+
+    /* Переводимо меню в вертикальний вигляд */
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+    }
+    nav ul li {
+        margin: 10px 0;
+    }
+
+    /* Один стовпець для секцій */
+    .service-items, .yachts-list {
+        grid-template-columns: 1fr;
+    }
+
+    /* Зменшуємо відступи */
+    section {
+        padding: 30px 0;
+    }
+
+    /* Футер у вертикальному вигляді */
+    footer .container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    /* Забезпечуємо, що шрифт не менший за 12px */
+    body {
+        font-size: 14px;
+    }
+}
+
+@media (min-width: 576px) and (max-width: 767.98px) {
+    .hero-overlay h1 {
+        font-size: 2.2em;
+    }
+    .hero-overlay p {
+        font-size: 1.2em;
+    }
+    .service-items, .yachts-list {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    }
+}
+
+.contact-section, .map-section {
+    padding: 60px 0; 
+    text-align: center;
+}
+
+.contact-section h2, .map-section h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: var(--primary-color); 
+}
+
+.contact-section p {
+    font-size: 1.1em;
+    margin: 10px 0;
+    color: var(--text-color); 
+}
+
+.contact-section a {
+    color: var(--secondary-color); 
+    text-decoration: none;
+}
+
+.contact-section a:hover {
+    color: var(--accent-color); 
+}
+
+#map {
+    height: 400px;
+    width: 100%;
+}
+body {
+    overflow-x: hidden; 
+}
+
+@media (max-width: 575.98px) {
+    .hero-section {
+        height: 50vh;
+    }
+
+    nav ul li a {
+        padding: 15px;
+        font-size: 1.2em;
+    }
+
+    .about-content {
+        flex-direction: column;
+    }
+    .about-text,
+    .about-image {
+        flex: 1 1 100%;
+    }
+
+    .btn, .btn-small {
+        min-height: 44px;
+    }
+
+    footer .footer-links a {
+        margin: 10px;
+    }
+
+    .map-section iframe {
+        height: 300px;
+    }
 }
